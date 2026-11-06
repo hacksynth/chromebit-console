@@ -30,7 +30,7 @@ jobs:
               cd es
               cmake -DCMAKE_BUILD_TYPE=Release . > /tmp/cmake.log 2>&1 || { tail -50 /tmp/cmake.log; exit 1; }
               make -j"$(nproc)" > /tmp/make.log 2>&1 || { tail -80 /tmp/make.log; exit 1; }
-              file emulationstation
+              ls -l emulationstation
               cp emulationstation /work/emulationstation
             '
 
