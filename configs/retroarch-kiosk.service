@@ -1,0 +1,19 @@
+[Unit]
+Description=RetroArch kiosk (Xorg + frontend)
+After=systemd-user-sessions.service bluetooth.service
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+User=root
+PAMName=login
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=journal
+Environment=XDG_RUNTIME_DIR=/run/user/0
+ExecStart=/usr/bin/xinit /usr/local/bin/kiosk.sh -- :0 vt1 -nolisten tcp -keeptty
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

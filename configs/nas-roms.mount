@@ -1,0 +1,15 @@
+# /etc/systemd/system/mnt-nas-roms.mount
+# Mount the NAS ROM share. Adjust host/share/credentials.
+[Unit]
+Description=NAS ROM share
+After=network-online.target
+Wants=network-online.target
+
+[Mount]
+What=//192.168.0.2/roms
+Where=/mnt/nas/roms
+Type=cifs
+Options=credentials=/etc/nas-creds,uid=0,gid=0,iocharset=utf8,nofail,_netdev
+
+[Install]
+WantedBy=multi-user.target

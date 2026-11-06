@@ -1,0 +1,3 @@
+# /etc/nas-creds   (chmod 600)
+username=youruser
+password=yourpassword
