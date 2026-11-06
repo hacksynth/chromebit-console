@@ -51,6 +51,14 @@ install -m644 configs/nas-roms.mount /etc/systemd/system/mnt-nas-roms.mount
 systemctl daemon-reload && systemctl enable --now mnt-nas-roms.mount
 ```
 
+## 一键安装
+
+```console
+# 把产物和 configs 放到同一目录后
+tar xzf emulationstation-armv7.tar.gz
+cp configs/* . && sh scripts/install-console.sh
+```
+
 ## 手柄
 
 - **USB 手柄**：即插即用（HID）
